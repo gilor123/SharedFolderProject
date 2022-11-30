@@ -22,28 +22,28 @@ class MyFileSystemEventHandler( FileSystemEventHandler ) :
     def on_created(self, event):
         base_name = os.path.basename(event.src_path)
         if not self.should_ignore_file(base_name):
-            self.handle_event(event.src_path,CREATED_EVENT,self._base_path)
+            self.handle_event(event.src_path,CREATED_EVENT)
 
 
     # Called when a file or directory is renamed
     def on_moved(self, event):
         base_name = os.path.basename( event.src_path )
         if not self.should_ignore_file( base_name ) :
-            self.handle_event(event.src_path,RENAMED_EVENT,self._base_path)
+            self.handle_event(event.src_path,RENAMED_EVENT)
 
 
     # Called when a file or directory is modified
     def on_modified(self, event):
         base_name = os.path.basename( event.src_path )
         if not self.should_ignore_file( base_name ) :
-            self.handle_event(event.src_path,MODIFIED_EVENT,self._base_path)
+            self.handle_event(event.src_path,MODIFIED_EVENT)
 
 
     # Called when a file or directory is deleted
     def on_deleted(self, event):
         base_name = os.path.basename( event.src_path )
         if not self.should_ignore_file( base_name ) :
-            self.handle_event(event.src_path,DELETED_EVENT,self._base_path)
+            self.handle_event(event.src_path,DELETED_EVENT)
 
 
     # Print the event description and send the current state to the server
